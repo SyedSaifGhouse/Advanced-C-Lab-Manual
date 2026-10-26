@@ -15,13 +15,35 @@ Else
 6.	Return 0
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+struct Person {
+    int age;
+    char name[20];
+};
 
+int main() {
+    struct Person p;
 
+    scanf("%d", &p.age);
+    scanf("%s", p.name);
+
+    printf("Age:%d\n", p.age);
+    printf("Name:%s", p.name);
+    printf("vaccine:%d\n", p.age);
+
+    if (p.age > 18)
+        printf("eligibility:yes");
+    else
+        printf("eligibility:no");
+
+    return 0;
+}
+```
 Output:
 
-//paste your output here
+<img width="1657" height="382" alt="image" src="https://github.com/user-attachments/assets/62b028bf-a12a-49d8-a214-e937275b12d9" />
 
 
 Result:
@@ -85,26 +107,35 @@ Use scanf to input the file name into the name array.
 5.	Return 0 to indicate successful program execution.
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int main() {
+    char filename[100];
+    FILE *file;
 
+    scanf("%s", filename);
 
+    file = fopen(filename, "w");
+    if (file == NULL) {
+        printf("Error in creating file.\n");
+        return 1;
+    } else {
+        printf("%s File Created Successfully\n", filename);
+    }
 
+    printf("%s File Opened\n", filename);
+
+    fclose(file);
+    printf("%s File Closed\n", filename);
+
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
-
-
-
-
-
+<img width="1372" height="381" alt="image" src="https://github.com/user-attachments/assets/850b17a2-b2c7-4357-a3ab-3bce5bc0c55f" />
 
 Result:
 Thus, the program is verified successfully
@@ -132,21 +163,40 @@ Use scanf to input the file name into the name array and the number of strings i
 5.	Return 0 to indicate successful program execution.
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int main() {
+    FILE *fp;
+    char fname[50];
+    int n, i;
+    float num;
 
+    scanf("%s", fname);
+    scanf("%d", &n);
 
+    fp = fopen(fname, "w");
+    if (fp == NULL) {
+        printf("Error in creating file");
+        return 1;
+    }
 
+    for (i = 0; i < n; i++) {
+        scanf("%f", &num);
+        fprintf(fp, "%.2f\n", num);
+    }
+
+    printf("%s Opened\n", fname);
+    printf("Data added Successfully");
+
+    fclose(fp);
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
+<img width="1376" height="372" alt="image" src="https://github.com/user-attachments/assets/5860e388-cd68-487a-b699-7522a4c7fa56" />
 
 Result:
 Thus, the program is verified successfully
